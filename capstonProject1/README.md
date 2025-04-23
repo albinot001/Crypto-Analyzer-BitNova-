@@ -83,28 +83,6 @@ This application combines real-time cryptocurrency data from CoinGecko with arti
 -   Message history
 -   Real-time updates
 
-## Project Structure
-
-```
-capstonProject1/
-├── app/
-│   ├── Http/Controllers/
-│   │   └── Api/
-│   │       ├── ChatController.php
-│   │       └── OpenAiController.php
-│   └── Services/
-│       ├── ChatService.php
-│       └── OpenAiServices.php
-├── react-frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── services/
-│   └── public/
-└── routes/
-    └── api.php
-```
-
 ## Deployment Guide
 
 ### Backend Deployment
@@ -366,7 +344,7 @@ Example Response:
 
 ## Academic Context
 
-This project was developed as a final project for a Bachelor's degree in [Your Field]. It demonstrates the practical application of:
+This project was developed as a final project for a Bachelor's degree. It demonstrates the practical application of:
 
 -   React-based SPA development
 -   Real-time data integration
@@ -378,12 +356,6 @@ This project was developed as a final project for a Bachelor's degree in [Your F
 -   State management in React
 -   Component-based architecture
 
-## Author
-
-[Your Name]
-Bachelor's Degree Candidate
-[Your University]
-
 ## OpenAI Setup
 
 ### Getting Started with OpenAI
@@ -393,19 +365,29 @@ Bachelor's Degree Candidate
 3. Add funds to your account (minimum $10 recommended for testing)
 4. Copy your API key for configuration
 
-### Configuration
+### API Key Configuration
 
-1. In your `.env` file, add your OpenAI API key:
+1. Create a copy of `.env.example` and name it `.env`:
 
-```env
-OPENAI_API_KEY=your_api_key_here
+```bash
+cp .env.example .env
 ```
 
-2. The API key is configured in `config/app.php` and used throughout the application:
+2. In your `.env` file, find or add the OpenAI API key variable:
+
+```env
+API_KEY=your_api_key_here
+```
+
+> **Important**: For demonstration purposes, we've included an example API key in the `.env.example` file. This key is deactivated and is only for reference. When setting up your own project, **always replace it with your personal API key** in the `.env` file.
+
+3. The API key is automatically loaded through Laravel's configuration in `config/app.php`:
 
 ```php
 'api_key' => env('API_KEY'),
 ```
+
+4. Never commit your actual API key to version control. The `.env` file is already included in `.gitignore` to prevent accidental exposure.
 
 ### Model Selection
 
@@ -431,6 +413,17 @@ OPENAI_API_KEY=your_api_key_here
 -   Average cost per analysis:
     -   GPT-3.5-turbo: ~$0.002 per request
     -   GPT-4: ~$0.03 per request
+
+### Security Best Practices
+
+When deploying your own version:
+
+1. Always use the `.env` file for your API key
+2. Never commit your `.env` file to version control
+3. Keep your API key secure and private
+4. Monitor your API usage regularly
+5. Set up usage limits in your OpenAI dashboard
+6. Regularly rotate your API keys for better security
 
 ## Contributing
 
