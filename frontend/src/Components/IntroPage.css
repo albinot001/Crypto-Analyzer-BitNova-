@@ -1,0 +1,214 @@
+.intro-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0b0c10, #1f2833, #0b0c10);
+  background-size: 300% 300%;
+  animation: gradientFlow 5s ease infinite;
+  color: #dcdcdc;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.intro-title {
+  font-size: 3rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+  color: #e5e5e5;
+}
+
+.intro-description {
+  font-size: 1.2rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 0.4s;
+  color: #a0a0a0;
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+.icon img {
+  width: 60px;
+  height: 60px;
+  filter: brightness(0.8);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon:hover img {
+  transform: scale(1.1);
+  filter: brightness(1);
+}
+
+.icon p {
+  font-size: 1rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
+  color: #dcdcdc;
+}
+
+.prompt-text {
+  margin-top: 30px;
+  font-size: 1rem;
+  font-family: "Gilroy", Arial, sans-serif;
+  color: #b0bec5;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.next-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #1f2833;
+  color: #dcdcdc;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  opacity: 0;
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.next-button:hover {
+  background-color: #dcdcdc;
+  color: #1f2833;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-out .intro-title,
+.fade-out .intro-description,
+.fade-out .tech-icons,
+.fade-out .prompt-text,
+.fade-out .next-button {
+  animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+.bitnova-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  background: linear-gradient(135deg, #1f2833, #0b0c10);
+  color: #66fcf1;
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  width: 220px;
+  font-size: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 10;
+  border: 2px solid #66fcf1;
+}
+
+.tooltip:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: #66fcf1 transparent transparent transparent;
+}
+
+.bitnova-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.bitnova {
+  color: #66fcf1;
+  font-weight: bold;
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.bitnova:hover {
+  color: #8efcff;
+  text-shadow: 0 0 10px #66fcf1, 0 0 20px #66fcf1, 0 0 30px #66fcf1,
+    0 0 40px #66fcf1, 0 0 50px #66fcf1;
+  cursor: pointer;
+}
+
+.tooltip {
+  animation: glowBorder 1.5s infinite alternate;
+}
+
+@keyframes glowBorder {
+  from {
+    box-shadow: 0 0 10px #66fcf1;
+  }
+  to {
+    box-shadow: 0 0 20px #66fcf1, 0 0 30px #66fcf1;
+  }
+}

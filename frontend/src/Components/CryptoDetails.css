@@ -1,0 +1,369 @@
+.crypto-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #0b0c10, #1f2833, #0b0c10);
+  background-size: 300% 300%;
+  animation: gradientFlow 5s ease infinite;
+  color: #dcdcdc;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.gauges {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 80px;
+  margin-bottom: 50px;
+}
+
+.gauge {
+  text-align: center;
+}
+
+.half-circle {
+  width: 300px;
+  height: 150px;
+  background: linear-gradient(180deg, #1f2833 50%, transparent 50%);
+  border: 5px solid #66fcf1;
+  border-bottom: none;
+  border-radius: 300px 300px 0 0;
+  position: relative;
+}
+
+.large-gauge .half-circle {
+  width: 450px;
+  height: 225px;
+}
+
+.needle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  height: 85%;
+  background-color: #66fcf1;
+  transform-origin: bottom center;
+  transition: transform 1s ease-in-out;
+}
+
+.gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #a0a0a0;
+}
+
+.gauge-labels .label.active {
+  color: #66fcf1;
+  font-weight: bold;
+  text-shadow: 0 0 10px #66fcf1;
+}
+
+.tables-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 90%;
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInTables 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.table {
+  flex: 1;
+  background-color: #1f2833;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+
+.table h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #66fcf1;
+  text-shadow: 0px 0px 10px #66fcf1;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.table th {
+  color: #66fcf1;
+  font-size: 1.1rem;
+}
+
+.table td {
+  font-size: 0.9rem;
+  color: #dcdcdc;
+}
+
+.action.buy {
+  color: #4caf50;
+}
+
+.action.sell {
+  color: #f44336;
+}
+
+.action.neutral {
+  color: #ffc107;
+}
+
+@keyframes fadeInTables {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.description {
+  flex: 1;
+  background-color: #1f2833; /* Same as tables */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  padding: 20px; /* Spacing inside the box */
+  width: 88%; /* Align with tables */
+  margin-top: 20px; /* Add spacing from the gauges */
+  opacity: 0; /* Hidden initially for animation */
+  transform: translateY(30px); /* Slight downward offset */
+  animation: fadeInDescription 1s ease forwards; /* Fade-in animation */
+  animation-delay: 1.5s; /* Delay to sync with other components */
+}
+
+.description h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #66fcf1; /* Consistent header color */
+  text-shadow: 0px 0px 10px #66fcf1; /* Glow effect */
+}
+
+.description p {
+  color: #dcdcdc; /* Light text color */
+  font-size: 1rem; /* Standard text size */
+  line-height: 1.5; /* Improve readability */
+}
+@keyframes fadeInDescription {
+  from {
+    opacity: 0; /* Fully transparent */
+    transform: translateY(30px); /* Start slightly below */
+  }
+  to {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* In final position */
+  }
+}
+
+/* Chat Container */
+.chat-container {
+  width: 88%;
+  background-color: #1f2833;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px; /* Prevent excessive stretching on large screens */
+  margin: 20px auto; /* Center the chat container */
+}
+.chat-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #66fcf1;
+  text-shadow: 0px 0px 10px #66fcf1;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  max-height: 400px; /* Slightly larger for better visibility */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px; /* Add padding for better spacing */
+  background: linear-gradient(
+    135deg,
+    #0b0c10,
+    #1f2833,
+    #0b0c10
+  ); /* Distinguish background from the container */
+  border-radius: 5px;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #66fcf1;
+  border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #1f2833;
+}
+
+.chat-message {
+  padding: 12px;
+  border-radius: 10px;
+  max-width: 75%;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.chat-message.user {
+  background-color: #66fcf1; /* Light cyan */
+  color: #0b0c10; /* Dark gray for text */
+  align-self: flex-end;
+  border-radius: 10px 10px 0 10px; /* Rounded corners for user's messages */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.chat-message.ai {
+  background: linear-gradient(
+    135deg,
+    #1e1c34,
+    #302f49
+  ); /* Gradient for AI messages */
+  color: #e0e0e0; /* Softer white text for readability */
+  align-self: flex-start;
+  border-radius: 10px 10px 10px 0; /* Rounded corners for AI messages */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.chat-message.typing {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #66fcf1;
+  background-color: #1f2833;
+  color: #dcdcdc;
+  font-size: 1rem; /* Slightly larger for better readability */
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.chat-input input::placeholder {
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #66fcf1;
+  color: #0b0c10;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-input button:hover {
+  background-color: #45a29e;
+  transform: scale(1.05); /* Slight scaling effect */
+}
+
+@keyframes typingEffect {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.chat-message.ai.typing span {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typingEffect 3s steps(40, end);
+  width: 0;
+}
+
+.chat-timestamp {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  text-align: right;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .chat-container {
+    width: 95%; /* Adjust for smaller screens */
+    padding: 15px;
+  }
+
+  .chat-message {
+    font-size: 0.85rem; /* Slightly smaller font for compact screens */
+  }
+
+  .chat-input button {
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-messages {
+    max-height: 250px; /* Reduce height for very small screens */
+  }
+
+  .chat-input input {
+    font-size: 0.85rem; /* Adjust input font size */
+  }
+
+  .chat-input button {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+}
