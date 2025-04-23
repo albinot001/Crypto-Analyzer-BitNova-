@@ -194,7 +194,10 @@ Common issues and solutions:
 
 ## Screenshots
 
-[Screenshots will be added here]
+![image](https://github.com/user-attachments/assets/d6d07e71-8605-46ce-b08f-5dcd67426aa1)
+![image](https://github.com/user-attachments/assets/3d1d4c5c-2769-4ff0-be51-b36bc24eaa84)
+![image](https://github.com/user-attachments/assets/1df265f3-dcbe-4bfe-8b5f-cc29ca7a8b42)
+
 
 ## Technical Stack
 
