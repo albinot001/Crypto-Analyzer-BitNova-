@@ -10,7 +10,7 @@ class OpenAiServices
 
     public function __construct()
     {
-        $apiKey = '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';
+        $apiKey = config('app.api_key');
 
         if (!$apiKey) {
             \Illuminate\Support\Facades\Log::error('API key is missing.');
